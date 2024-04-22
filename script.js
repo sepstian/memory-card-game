@@ -2,6 +2,7 @@ const cards = document.querySelectorAll(".card"),
 timeTag = document.querySelector(".time b"),
 flipsTag = document.querySelector(".flips b"),
 refreshBtn = document.querySelector(".details button");
+const audioElement = new Audio('backsound.mp3');
 
 let maxTime = 20;
 let timeLeft = maxTime;
@@ -23,6 +24,7 @@ function flipCard({target: clickedCard}) {
     if(!isPlaying) {
         isPlaying = true;
         timer = setInterval(initTimer, 1000);
+        audioElement.play();
     }
     if(clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
         flips++;
@@ -72,6 +74,8 @@ function shuffleCard() {
     timeTag.innerText = timeLeft;
     flipsTag.innerText = flips;
     disableDeck = isPlaying = false;
+    audioElement.currentTime = 0
+    audioElement.pause()
 
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);

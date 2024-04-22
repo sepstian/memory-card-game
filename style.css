@@ -9,12 +9,32 @@
 p{
   font-size: 20px;
 }
-body{
+/* body{
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   background: #6563ff;
+} */
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  display: flex;
+  background-size: 400% 400%;
+  align-items: center;
+  justify-content: center;
+	animation: gradient 15s ease infinite;
+	min-height: 100vh;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 ::selection{
   color: #fff;
@@ -98,8 +118,8 @@ body{
   margin-top: 15px;
   padding: 0 20px;
   border-radius: 7px;
-  background: #fff;
-  height: calc(70% / 4 - 30px);
+  background: #f9f4f4;
+  height: calc(60% / 4 - 30px);
   justify-content: space-between;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
